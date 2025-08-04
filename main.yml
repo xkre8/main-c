@@ -28,6 +28,10 @@
             {% endfor %}
           ]
 
+    - name: Setup LVM Management
+      ansible.builtin.include_role:
+        name: company.infrastructure.lvm_management
+        
     - name: Setup Java Management
       ansible.builtin.include_role:
         name: company.infrastructure.java_management
