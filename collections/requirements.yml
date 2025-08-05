@@ -3,3 +3,6 @@ collections:
   - name: https://github.com/xkre8/ansible-test.git
     type: git
     version: main
+
+  - name: community.general
+    version: ">=6.0.0"
