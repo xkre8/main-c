@@ -6,11 +6,6 @@
 
   vars:
       users: "{{ users_yaml | from_yaml if users_yaml is defined and users_yaml != '' else [] }}"
-
-  pre_tasks:
-    - name: Discover available disks
-      ansible.builtin.include_tasks: disk_discovery.yml
-      when: auto_discover_disks | default(true)
       
   tasks:
     - name: Setup LVM Management
