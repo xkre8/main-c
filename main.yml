@@ -4,41 +4,8 @@
   collections:
     - company.infrastructure
 
-  # vars:
-  #     users: "{{ users_yaml | from_yaml if users_yaml is defined and users_yaml != '' else [] }}"
-  
-  vars_prompt:
-    - name: volume_group_name
-      prompt: "Enter existing Volume Group name (or leave empty if creating new)"
-      private: no
-      default: ""
-    
-    - name: create_new_vg
-      prompt: "Create new Volume Group? (yes/no)"
-      private: no
-      default: "no"
-    
-    - name: new_vg_name
-      prompt: "New Volume Group name (if creating new)"
-      private: no
-      default: ""
-      when: create_new_vg == "yes"
-    
-    - name: new_vg_devices
-      prompt: "Devices for new VG (comma-separated, e.g., /dev/sdb,/dev/sdc)"
-      private: no
-      default: ""
-      when: create_new_vg == "yes"
-
-  pre_tasks:
-    - name: Convert create_new_vg to boolean
-      ansible.builtin.set_fact:
-        create_new_vg: "{{ create_new_vg | lower in ['yes', 'true', '1'] }}"
-    
-    - name: Convert new_vg_devices to list
-      ansible.builtin.set_fact:
-        new_vg_devices: "{{ new_vg_devices.split(',') | map('trim') | list }}"
-      when: new_vg_devices is defined and new_vg_devices != ""
+  vars:
+      users: "{{ users_yaml | from_yaml if users_yaml is defined and users_yaml != '' else [] }}"
 
   tasks:
     - name: Setup LVM Management
