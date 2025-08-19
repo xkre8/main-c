@@ -12,11 +12,11 @@
       ansible.builtin.include_role:
         name: company.infrastructure.lvm_management
         
-    # - name: Setup Java Management
-    #   ansible.builtin.include_role:
-    #     name: company.infrastructure.java_management
+    - name: Setup Java Management
+      ansible.builtin.include_role:
+        name: company.infrastructure.java_management
 
-    # - name: Setup User Management
-    #   ansible.builtin.include_role:
-    #     name: company.infrastructure.user_management
-    #   when: users | length > 0
+    - name: Setup User Management
+      ansible.builtin.include_role:
+        name: company.infrastructure.user_management
+      when: users | length > 0
