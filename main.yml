@@ -8,13 +8,13 @@
       users: "{{ users_yaml | from_yaml if users_yaml is defined and users_yaml != '' else [] }}"
       
   tasks:
-    # - name: Setup LVM Management
-    #   ansible.builtin.include_role:
-    #     name: company.infrastructure.lvm_management
+    - name: Setup LVM Management
+      ansible.builtin.include_role:
+        name: company.infrastructure.lvm_management
         
-    # - name: Setup Java Management
-    #   ansible.builtin.include_role:
-    #     name: company.infrastructure.java_management
+    - name: Setup Java Management
+      ansible.builtin.include_role:
+        name: company.infrastructure.java_management
 
     - name: Setup User Management
       ansible.builtin.include_role:
