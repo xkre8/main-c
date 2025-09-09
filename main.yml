@@ -8,14 +8,14 @@
   #     users: "{{ users_yaml | from_yaml if users_yaml is defined and users_yaml != '' else [] }}"
   vars:
     # Basic Configuration
-    selected_disk_name: "sdd"
+    selected_disk_name: "sdc"
     partition_strategy: "create_partition"
     split_disk: true
     partition_size_gb: 5
     
     # Volume Groups
-    volume_group_name: "vg_app"
-    volume_group2_name: "vg_data"
+    volume_group_name: "vg_app1"
+    volume_group2_name: "vg_data1"
     
     # Primary VG Filesystem Configuration
     filesystem_config: |
