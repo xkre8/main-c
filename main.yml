@@ -10,8 +10,8 @@
     # Basic Configuration
     selected_disk_name: "sde"
     partition_strategy: "create_partition"
-    split_disk: true
-    partition_size_gb: 15
+    split_disk: false
+    partition_size_gb: 5
     
     # Volume Groups
     volume_group_name: "vg_app3"
