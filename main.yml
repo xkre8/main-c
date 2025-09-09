@@ -14,8 +14,8 @@
     partition_size_gb: 5
     
     # Volume Groups
-    volume_group_name: "vg_app1"
-    volume_group2_name: "vg_data1"
+    volume_group_name: "vg_app3"
+    volume_group2_name: "vg_data3"
     
     # Primary VG Filesystem Configuration
     filesystem_config: |
