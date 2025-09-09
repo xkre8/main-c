@@ -8,7 +8,7 @@
   #     users: "{{ users_yaml | from_yaml if users_yaml is defined and users_yaml != '' else [] }}"
   vars:
     # Basic Configuration
-    selected_disk_name: "sdc"
+    selected_disk_name: "sde"
     partition_strategy: "create_partition"
     split_disk: true
     partition_size_gb: 5
