@@ -7,7 +7,7 @@
   # vars:
   #     users: "{{ users_yaml | from_yaml if users_yaml is defined and users_yaml != '' else [] }}"
   vars:
-    selected_disk_name: "sdd"
+    selected_disk_name: "sdc"
     partition_strategy: "create_partition"
     split_disk: true
     split_disk_secondary: true        
