@@ -1,7 +1,7 @@
 - name: Infrastructure Setup
   # hosts: all
   hosts: localhost
-  connect: local
+  connection: local
   become: yes
   collections:
     - company.infrastructure
