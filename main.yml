@@ -48,3 +48,19 @@
       ansible.builtin.include_role:
         name: company.infrastructure.user_management
 
+    - name: 🧩 Debug created users
+      ansible.builtin.shell: |
+        echo "=== USER CHECK REPORT ==="
+        {% for u in users %}
+        echo "👤 {{ u.username }}:"
+        id {{ u.username }} 2>/dev/null || echo "⚠️  User not found"
+        echo ""
+        {% endfor %}
+      register: user_check
+      changed_when: false
+    
+    - name: 📋 Show user debug output
+      ansible.builtin.debug:
+        msg: "{{ user_check.stdout }}"
+
+
