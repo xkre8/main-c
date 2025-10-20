@@ -34,7 +34,15 @@
   #     - path: "/backup"
   #       size_mb: 5024
   #       fstype: "ext4"
-      
+  TASK [company.infrastructure.user_management_v2 : Validate: User configs not empty] ***
+  fatal: [localhost]: FAILED! => {
+      "assertion": "parsed_user_configs | length > 0",
+      "changed": false,
+      "evaluated_to": false,
+      "msg": "❌ user_configs is empty or undefined"
+  }
+  
+
   tasks:
     # - name: Setup LVM Management
     #   ansible.builtin.include_role:
