@@ -34,9 +34,7 @@
   #     - path: "/backup"
   #       size_mb: 5024
   #       fstype: "ext4"
-
-  
-
+      
   tasks:
     # - name: Setup LVM Management
     #   ansible.builtin.include_role:
@@ -64,5 +62,4 @@
     - name: 📋 Show user debug output
       ansible.builtin.debug:
         msg: "{{ user_check.stdout }}"
-
 
