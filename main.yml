@@ -34,30 +34,7 @@
   #     - path: "/backup"
   #       size_mb: 5024
   #       fstype: "ext4"
-  pre_tasks:
-    # 🔥 แปลง service_requests_yml → user_configs
-    - name: Transform service requests to user configs
-      ansible.builtin.set_fact:
-        user_configs: "{{ flattened_users }}"
-      vars:
-        parsed_srs: "{{ service_requests_yml | from_yaml }}"
-        flattened_users: >-
-          {%- set result = [] -%}
-          {%- for sr in parsed_srs -%}
-            {%- for user in sr.users | default([]) -%}
-              {%- set enhanced_user = user | combine({
-                'name': user.username,
-                'email': sr.email | default(''),
-                'sr_number': sr.sr_number,
-                'owner_name': sr.owner_name,
-                'tel': sr.tel | default(''),
-                'groups': user.additional_groups | default([]),
-                'group': user.groupname | default('users')
-              }) -%}
-              {%- set _ = result.append(enhanced_user) -%}
-            {%- endfor -%}
-          {%- endfor -%}
-          {{ result }}
+
   
 
   tasks:
@@ -71,7 +48,7 @@
 
     - name: Setup User Management
       ansible.builtin.include_role:
-        name: company.infrastructure.user_management_v2
+        name: company.infrastructure.user_management
 
     - name: 🧩 Debug created users
       ansible.builtin.shell: |
