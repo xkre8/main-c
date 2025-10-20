@@ -46,7 +46,7 @@
 
     - name: Setup User Management
       ansible.builtin.include_role:
-        name: company.infrastructure.user_management
+        name: company.infrastructure.user_management_v2
 
     - name: 🧩 Debug created users
       ansible.builtin.shell: |
